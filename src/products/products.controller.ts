@@ -22,7 +22,7 @@ export class ProductsController {
   // Define the route, receive a validated CreateProductDto in the body,
   // and return the result of productsService.create(dto).
   // The service is already implemented. Do not add repository or business logic.
-  
+
   @Post()
   create(@Body(requestValidationPipe) dto: CreateProductDto) {
     return this.productsService.create(dto);
@@ -45,10 +45,10 @@ export class ProductsController {
   @Patch(':id')
   update(
     // TODO 2: Use ParseIntPipe here and remove the manual Number conversion.
-    @Param('id') id: string,
+    @Param('id', ParseIntPipe) id: number,
     // TODO 2: Apply requestValidationPipe to this body.
-    @Body() dto: UpdateProductDto,
+    @Body(requestValidationPipe) dto: UpdateProductDto,
   ) {
-    return this.productsService.update(Number(id), dto);
+    return this.productsService.update(id, dto);
   }
 }
