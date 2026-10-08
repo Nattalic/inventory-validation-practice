@@ -22,6 +22,7 @@ export class ProductsController {
   // Define the route, receive a validated CreateProductDto in the body,
   // and return the result of productsService.create(dto).
   // The service is already implemented. Do not add repository or business logic.
+  
   @Post()
   create(@Body(requestValidationPipe) dto: CreateProductDto) {
     return this.productsService.create(dto);
