@@ -31,7 +31,7 @@ export class ProductsController {
   @Get()
   findFiltered(
     // TODO 3: Apply requestValidationPipe to the complete query DTO.
-    @Query() query: FilterProductsQueryDto,
+    @Query(requestValidationPipe) query: FilterProductsQueryDto,
   ) {
     return this.productsService.findFiltered(query);
   }
